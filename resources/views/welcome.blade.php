@@ -81,7 +81,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Push Server PasswordW1pi
+                    Push Server Pondok
                 </div>
 
                 <div class="links">
