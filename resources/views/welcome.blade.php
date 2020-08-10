@@ -81,7 +81,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel
+                    Push Server Pondok
                 </div>
 
                 <div class="links">
