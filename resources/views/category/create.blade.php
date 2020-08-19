@@ -165,7 +165,7 @@
                 </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <form role="form" method="POST" action="{{ route('category.store') }}">
+              <form role="form" method="POST" action="{{ route('admin.category.store') }}">
                 @csrf
                 <div class="card-body">
                   <div class="form-group">

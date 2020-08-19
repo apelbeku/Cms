@@ -176,9 +176,9 @@
                         <td>{{ $ctg->name }}</td>
                         <td>
                           <button class="btn   btn-outline-warning">
-                            <a href="{{ route('category.edit', ['id'=>$ctg->id]) }}">Edit</a>
+                            <a href="{{ route('admin.category.edit', ['id'=>$ctg->id]) }}">Edit</a>
                           </button>
-                            <form style="margin: 0;display: inline;" method="POST" action="{{ route('category.delete', ['id'=>$ctg->id]) }}">
+                            <form style="margin: 0;display: inline;" method="POST" action="{{ route('admin.category.delete', ['id'=>$ctg->id]) }}">
                               @csrf @method('delete')
                               <button class="btn
                               btn-outline-danger">

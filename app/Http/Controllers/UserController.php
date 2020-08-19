@@ -3,14 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Db;
-use App\Model\Category;
+use App\Model\User;
 
-class CategoryController extends Controller
+class UserController extends Controller
 {
     function __construct()
     {
-        $this->ctg = new Category();
+        $this->users = new User();
     }
 
     /**
@@ -20,9 +19,9 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $Category = $this->ctg->all();
+        $user = $this->users->all();
 
-        return view('category.index', compact('Category'));
+        return view('/user.index', compact('user'));
     }
 
     /**
@@ -32,9 +31,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        $this->ctg;
-
-        return view('category.create');
+        //
     }
 
     /**
@@ -45,12 +42,18 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        $this->ctg;
-        $category = new $this->ctg;
-        $category->name = $request->name;
-        $category->save();
+        //
+    }
 
-        return redirect('admin/category');
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    {
+        //
     }
 
     /**
@@ -61,10 +64,7 @@ class CategoryController extends Controller
      */
     public function edit($id)
     {
-        $this->ctg;
-        $category = $this->ctg->find($id);
-
-        return view('category.edit', compact('category'));
+        //
     }
 
     /**
@@ -76,12 +76,7 @@ class CategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $this->ctg;
-        $category = $this->ctg->find($id);
-        $category->name = $request->name;
-        $category->save();
-
-        return redirect('admin/category');
+        //
     }
 
     /**
@@ -92,9 +87,6 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-        $category = $this->ctg->find($id);
-        $category->delete();
-
-        return redirect('admin/category');
+        //
     }
 }

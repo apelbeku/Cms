@@ -165,7 +165,7 @@
                 </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <form role="form" method="POST" action="{{ route('category.update', [$category->id]) }}">
+              <form role="form" method="POST" action="{{ route('admin.category.update', [$category->id]) }}">
                 @csrf
                 @method('PUT')
                 <div class="card-body">

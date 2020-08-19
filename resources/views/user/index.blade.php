@@ -1,4 +1,12 @@
+<!DOCTYPE html>
+<html>
+<head>
+  @include('layouts.link')
+</head>
+<body class="hold-transition sidebar-mini layout-fixed">
+<div class="wrapper">
 
+  <!-- Navbar -->
   <nav class="main-header navbar navbar-expand navbar-white navbar-light">
     <!-- Left navbar links -->
     <ul class="navbar-nav">
@@ -112,47 +120,6 @@
           <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
         </div>
       </li>
-      <li class="nav-item dropdown user-menu">
-        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
-          <img src="{{ asset('lol/dist/img/user2-160x160.jpg') }}" class="user-image img-circle elevation-2" alt="User Image">
-          <span class="d-none d-md-inline">Craft</span>
-        </a>
-        <ul class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-          <!-- User image -->
-          <li class="user-header bg-primary">
-            <img src="{{ asset('lol/dist/img/user2-160x160.jpg') }}" class="img-circle elevation-2" alt="User Image">
-
-            <p>
-              Craft - Web Developer
-              <small>Member since Nov. 2012</small>
-            </p>
-          </li>
-          <!-- Menu Body -->
-          <li class="user-body">
-            <div class="row">
-              <div class="col-4 text-center">
-                <a href="#">Followers</a>
-              </div>
-              <div class="col-4 text-center">
-                <a href="#">Sales</a>
-              </div>
-              <div class="col-4 text-center">
-                <a href="#">Friends</a>
-              </div>
-            </div>
-            <!-- /.row -->
-          </li>
-          <!-- Menu Footer-->
-          <li class="user-footer">
-            <form method="POST" action="/logout"><!-- 
-            <a href="#" class="btn btn-default btn-flat">Profile</a> -->
-            	@csrf
-            	<button class="btn btn-default btn-flat float-right">Sign out</button>
-            </form>
-          </li>
-        </ul>
-      </li>
-
       <li class="nav-item">
         <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button">
           <i class="fas fa-th-large"></i>
@@ -160,3 +127,103 @@
       </li>
     </ul>
   </nav>
+  <!-- /.navbar -->
+
+  <!-- Main Sidebar Container -->
+  @include('layouts.sidebar')
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <!-- <h1 class="m-0 text-dark">Dashboard</h1> -->
+          </div><!-- /.col -->
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right"><!-- 
+              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item active">Dashboard v1</li> -->
+            </ol>
+          </div><!-- /.col -->
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-12">
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">Category List</h3>
+                <button class="btn btn-outline-success float-right"><a href="{{  route('admin.user.create') }}">Edit</a></button>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+                <table id="example2" class="table table-bordered table-hover">
+                  <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Action</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                    @foreach($user as $usr)
+                      <tr>
+                        <td>{{ $usr->name }}</td>
+                        <td>{{ $usr->email }}</td>
+                        <td>
+                          <button class="btn   btn-outline-warning">
+                            <a href="{{ route('admin.user.edit', ['id'=>$usr->id]) }}">Edit</a>
+                          </button>
+                            <form style="margin: 0;display: inline;" method="POST" action="{{ route('admin.user.delete', ['id'=>$usr->id]) }}">
+                              @csrf @method('delete')
+                              <button class="btn
+                              btn-outline-danger">
+                              Delete
+                              </button>
+                          </form>
+                        </td>
+                      </tr>
+                    @endforeach
+                  </tbody>
+                </table>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+          </div>
+          <!-- /.col -->
+        </div>
+        <!-- /.row -->
+      </div>
+      <!-- /.container-fluid -->
+    </section>
+    
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+  <footer class="main-footer">
+    <strong>Copyright &copy; 2014-2019 <a href="http://adminlte.io">AdminLTE.io</a>.</strong>
+    All rights reserved.
+    <div class="float-right d-none d-sm-inline-block">
+      <b>Version</b> 3.0.5
+    </div>
+  </footer>
+
+  <!-- Control Sidebar -->
+  <aside class="control-sidebar control-sidebar-dark">
+    <!-- Control sidebar content goes here -->
+  </aside>
+  <!-- /.control-sidebar -->
+</div>
+<!-- ./wrapper -->
+
+@include('layouts.script')
+</body>
+</html>
