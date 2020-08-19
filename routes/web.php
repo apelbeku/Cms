@@ -48,10 +48,10 @@ Route::middleware('auth')->group(function () {
 
 		Route::prefix('/user')->name('user.')->group(function () {
 			Route::get('/', 'UserController@index')->name('index');
-			Route::get('/create', 'UserController@create')->name('create');
-			Route::post('/store', 'UserController@store')->name('store');
+			// Route::get('/create', 'UserController@create')->name('create');
+			// Route::post('/store', 'UserController@store')->name('store');
 			Route::get('/edit/{id}', 'UserController@edit')->name('edit');
-			Route::put('/edit/{id}', 'Usercontroller@update')->name('update');
+			Route::put('/edit/{id}', 'UserController@update')->name('update');
 			Route::delete('/delete', 'UserController@destroy')->name('delete');
 		});
 	});
