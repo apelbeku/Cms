@@ -3,9 +3,17 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Model\Article;
+use App\Model\User;
+use App\Model\Category;
 
 class ArticleController extends Controller
 {
+    public function __construct()
+    {
+        $this->art = new Article();
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -13,7 +21,9 @@ class ArticleController extends Controller
      */
     public function index()
     {
-        return view('article.index');
+        $article = $this->art->orderBy('created_at', 'desc')->get();
+
+        return view('article.index', compact('article'));
     }
 
     /**
@@ -23,7 +33,11 @@ class ArticleController extends Controller
      */
     public function create()
     {
-        //
+        $this->art;
+        $user = User::all();
+        $category = Category::all();
+
+        return view('/article/create', compact('user', 'category'));
     }
 
     /**
@@ -34,7 +48,10 @@ class ArticleController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // dd($request);
+        $this->art->create($request->all());
+
+        return redirect('/admin/article');
     }
 
     /**
@@ -56,7 +73,9 @@ class ArticleController extends Controller
      */
     public function edit($id)
     {
-        //
+        $article = $this->art->find($id);
+
+        return view('admin/article/edit', compact('article'));
     }
 
     /**
@@ -68,7 +87,10 @@ class ArticleController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $article = $this->art->find($id);
+        $article->update($request->all());
+
+        return redirect('admin/article');
     }
 
     /**

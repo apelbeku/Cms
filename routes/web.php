@@ -19,11 +19,12 @@ Route::get('/login/register', 'AuthController@register')->name('register');
 Route::post('/registration-process', 'AuthController@registrationProcess')->name('register');
 Route::post('/logout', 'AuthController@logout')->name('logout');
 
-Route::middleware('auth')->group(function () {
 
 	Route::get('/', function () {
-	    return view('layouts.index');
+	    return view('welcome');
 	});
+
+Route::middleware('auth')->group(function () {
 
 	Route::prefix('/admin')->name('admin.')->group(function () {
 		Route::get('/', 'AdminController@index');
@@ -40,7 +41,7 @@ Route::middleware('auth')->group(function () {
 		Route::prefix('/article')->name('article.')->group(function () {
 			Route::get('/', 'ArticleController@index')->name('index');
 			Route::get('/create', 'ArticleController@create')->name('create');
-			Route::post('/store', 'ArticleController]@store')->name('store');
+			Route::post('/store', 'ArticleController@store')->name('store');
 			Route::get('/edit/{id}', 'ArticleController@edit')->name('edit');
 			Route::put('/edit/{id}', 'ArticleController@update')->name('update');
 			Route::delete('/delete/{id}', 'ArticleController@destroy')->name('delete');
@@ -48,8 +49,8 @@ Route::middleware('auth')->group(function () {
 
 		Route::prefix('/user')->name('user.')->group(function () {
 			Route::get('/', 'UserController@index')->name('index');
-			// Route::get('/create', 'UserController@create')->name('create');
-			// Route::post('/store', 'UserController@store')->name('store');
+			Route::get('/create', 'UserController@create')->name('create');
+			Route::post('/store', 'UserController@store')->name('store');
 			Route::get('/edit/{id}', 'UserController@edit')->name('edit');
 			Route::put('/edit/{id}', 'UserController@update')->name('update');
 			Route::delete('/delete', 'UserController@destroy')->name('delete');

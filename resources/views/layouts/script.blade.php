@@ -32,3 +32,10 @@
 <script src="{{ asset('lol/dist/js/pages/dashboard.js') }}"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="{{ asset('lol/dist/js/demo.js') }}"></script>
+<script type="text/javascript">
+	$(document).ready(function () {
+		$('#summnernot').summernote({
+			height: 500,
+		});
+	});
+</script>
