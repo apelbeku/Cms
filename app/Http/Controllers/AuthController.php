@@ -26,7 +26,7 @@ class AuthController extends Controller
         $isloginSucess = Auth::attempt($credentials);
 
         if ($isloginSucess) {
-            return redirect()->intended('/');
+            return redirect()->intended('/admin');
         }else{
             return redirect()->back();
         }
@@ -54,6 +54,6 @@ class AuthController extends Controller
     {
         Auth::logout();
 
-        return redirect('/login');
+        return redirect('/');
     }
 }
