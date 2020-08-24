@@ -20,10 +20,10 @@ Route::post('/registration-process', 'AuthController@registrationProcess')->name
 Route::post('/logout', 'AuthController@logout')->name('logout');
 
 
+	// Route::get('/', function () {
+	//     return view('welcome');
+	// });
 	Route::get('/', function () {
-	    return view('welcome');
-	});
-	Route::get('/website', function () {
 		return view('website');
 	});
 
