@@ -17,9 +17,9 @@
 	<!-- Navbar -->
 	<div class="bg-indigo-600 h-16">
 		<div class=" mx-auto flex justify-between">
-			<div class="p-4"><a href="#" class="text-white text-2xl">The Aliance</a></div>
+			<div class="p-4"><a href="/" class="text-white text-2xl">The Aliance</a></div>
 			<div class="p-5">
-				<a href="#" class="bg-transparant hover:bg-green-400 font-semibold text-white hover:text-white px-2 py-2 border border-green-400 border-transparent rounded">Log In</a>
+				<a href="/login" class="bg-transparant hover:bg-green-400 font-semibold text-white hover:text-white px-2 py-2 border border-green-400 border-transparent rounded">Log In</a>
 			</div>
 		</div>
 	</div>
