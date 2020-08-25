@@ -62,7 +62,7 @@
                         <td>{{ $art->user_id }}</td>
                         <td>{{ $art->title }}</td>
                         <td>{{ $art->content }}</td>
-                        <td>{{ $art->image }}</td>
+                        <td><img src="/image/{{ $art->image }}"></td>
                         <td>{{ $art->slug }}</td>
                         <td>
                           <button class="btn   btn-outline-warning">
