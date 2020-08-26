@@ -23,8 +23,17 @@ Route::post('/logout', 'AuthController@logout')->name('logout');
 	// Route::get('/', function () {
 	//     return view('welcome');
 	// });
-	Route::get('/', function () {
-		return view('website');
+	// Route::get('/', function () {
+	// 	return view('website');
+	// });
+
+	Route::prefix('/')->name('/.')->group(function () {
+		Route::get('/', function () {
+			return view('website');
+		});
+		Route::get('/article', function () {
+			return view('readweb');
+		})->name('article');
 	});
 
 Route::middleware('auth')->group(function () {

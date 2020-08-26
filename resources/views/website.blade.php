@@ -25,7 +25,7 @@
 		<div class=" mx-auto flex justify-between class">
 			<div class="p-4 hover"><a href="/" class="text-white text-2xl">The Aliance</a></div>
 			<div class="p-5">
-				<a href="/login" class="bg-transparant hover:bg-green-400 font-semibold text-white hover:text-white px-2 py-2 border border-green-400 border-transparent rounded">Log In</a>
+				<a href="/login" class="bg-transparant hover:bg-green-400 font-semibold text-white hover:text-white px-2 py-2 border-2 border-green-400 border-transparent rounded">Log In</a>
 			</div>
 		</div>
 	</div>
@@ -112,7 +112,7 @@
 						</div>
 						<div style="width:350px;padding:0px 10px;">
 							<a href="" class="flex-wrap text-sm"> is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book</a>
-							<button class="bg-transparant hover:bg-green-400 text-green-500 hover:text-white px-3 py-1 border border-green-400 border-transparent rounded text-sm mt-5 float-right">Continue Reading</button>
+							<button class="bg-transparant hover:bg-green-400 text-green-500 hover:text-white px-3 py-1 border rounded text-sm mt-5 float-right">Continue Reading</button>
 						</div>
 					</div>
 				 </div>
